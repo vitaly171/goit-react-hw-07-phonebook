@@ -1,24 +1,28 @@
-import { ToastContainer } from 'react-toastify';
-import ContactForm from './components/ContactForm';
-import ContactsList from './components/ContactsList';
-import Filter from './components/Filter';
-import Container from './components/Container';
-import Section from './components/Section';
+import React from 'react';
+import Form from './components/Form/Form'
+import Filter from './components/Filter/Filter';
+import ContactList from './components/ContactList/ContactList';
+import Container from './components/Container/Container';
+import Section from './components/Section/Section';
+import {useSelector} from 'react-redux';
 
-function App() {
+
+export default function App() {
+
+  const error = useSelector((state) => state.contacts.error); 
+
+
   return (
     <Container>
       <Section title="Phonebook">
-        <ContactForm />
+      {error && <p style = {{color:'red'}}>{error}</p>}
+        <Form />
       </Section>
       <Section title="Contacts">
-        <Filter />
-        <ContactsList />
-        <ToastContainer autoClose={3000} />
+      <Filter />
+      <ContactList />
       </Section>
     </Container>
   );
 }
-
-export default App;
 
