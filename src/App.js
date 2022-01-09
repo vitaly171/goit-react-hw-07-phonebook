@@ -4,7 +4,8 @@ import Filter from './components/Filter/Filter';
 import ContactList from './components/ContactList/ContactList';
 import Container from './components/Container/Container';
 import Section from './components/Section/Section';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
 
 
 export default function App() {
@@ -20,7 +21,8 @@ export default function App() {
       </Section>
       <Section title="Contacts">
       <Filter />
-      <ContactList />
+        <ContactList />
+        <ToastContainer autoClose={3000} />
       </Section>
     </Container>
   );

@@ -2,7 +2,6 @@ import React from 'react';
 import {useState} from 'react';
 import s from './Form.module.css';
 import { toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
 import {connect, useSelector} from 'react-redux';
 import PropTypes from 'prop-types';
 import { addContact } from  '../../redux/contactsRedux/operations';
@@ -38,7 +37,9 @@ const Form = props => {
 
     if (contacts.some(contact => contact.name===newName)){
       return toast.error(`${validateForm} Contact already exists`);
-    } else {
+    }
+
+    else {
       props.onSubmit(newName, newNumber);
       setNewName('');
       setNewNumber(''); 
